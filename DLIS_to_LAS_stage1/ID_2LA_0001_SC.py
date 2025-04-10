@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Apr  9 19:35:47 2025
-
+Created on Wed Apr  9 15:28:12 2025
 @author: Theresa Rocco Pereira Barbosa
 """
 
@@ -26,10 +25,10 @@ pd.set_option('display.max_row', 50)
 # f: recebe o primeiro arquivo lógico
 # *tail: recebe os demais arquivos lógicos
 
-f, *tail = dlis.load("C:/Users/Theresa/OneDrive/PESQUISA/LabMeg_Exxon/PMP_BC_WELL_LOGGING/original_data/dlis_data/1MB__0001__SC_1MB__0001__SC.dlis")
+f, *tail = dlis.load("C:/Users/Theresa/OneDrive/PESQUISA/LabMeg_Exxon/PMP_BC_WELL_LOGGING/original_data/dlis_data/2LA__0001__SC_2LA__0001__SC.dlis")
 
 # Podemos verificar o conteúdo chamando os nomes
-# f retorna, por exemplo, LogicalFile(1MB  0001  SCBRA1MB  0001  SC1)
+# f retorna, por exemplo, LogicalFile(2LA  0001  SCBRA2LA  0001  SC1)
 # tail retorna uma lista vazia se não houver outros arquivos lógicos no DLIS.
 
 print(f)
@@ -38,7 +37,7 @@ print(tail)
 # Para visualizar o conteúdo de alto nível do arquivo, podemos usar o método .describe(). 
 # Ele retorna informações sobre o número de quadros, canais e objetos no arquivo lógico.
 
-f.describe() #  Nesse exemplo temos 4 channels e 1 frame!
+f.describe() #  Nesse exemplo temos 5 channels e 1 frame!
 
 # Em seguida, obtemos o resumo detalhando as origens desse conjunto de dados.
 # Usaremos essas informações quando criarmos nosso arquivo LAS.
@@ -69,13 +68,13 @@ for frame in f.frames:
     print(f'Channel Names: \t\t {str(frame.channels)}')
     print('\n\n')
 
-# Frame Name: 	  [0,1,IES/BOREHOLE-DEPTH/1/.20/M]
-# Index Type: 	  BOREHOLE-DEPTH    # Tipo de índice usado para registrar os dados — neste caso, profundidade medida ao longo do poço.
-# Depth Interval:  125.0 - 2069.8 m # Intervalo de profundidade para os dados neste frame.
-# Depth Spacing:   0.2 m            # Os dados foram registrados a cada 0,2 metros — essa é a resolução do perfil.
-# Direction: 	  INCREASING        # A profundidade aumenta com o tempo — o registro foi feito de cima para baixo.
-# Num of Channels: 4                # Existem 5 canais registrados neste frame.
-# Channel Names:   [Channel(INDEX3652), Channel(RILD), Channel(SP), Channel(CIL)]
+# Frame Name: 	  [0,1,ES/BOREHOLE-DEPTH/1/.20/M] 
+# Index Type: 	  BOREHOLE-DEPTH  # Tipo de índice usado para registrar os dados — neste caso, profundidade medida ao longo do poço.
+# Depth Interval:  25.0 - 1339.8 m # Intervalo de profundidade para os dados neste frame.
+# Depth Spacing:   0.2 m           # Os dados foram registrados a cada 0,2 metros — essa é a resolução do perfil.
+# Direction: 	  INCREASING      # A profundidade aumenta com o tempo — o registro foi feito de cima para baixo.
+# Num of Channels: 5               # Existem 5 canais registrados neste frame.
+# Channel Names:   [Channel(INDEX4136), Channel(RLN), Channel(RSN), Channel(SP), Channel(RLAT)]
 
 # --------- #
 
@@ -104,11 +103,11 @@ las_file.well['COMP'] = lasio.HeaderItem('COMP', value = operator)
 # Adicionamos a data manualmente, pois essa propriedade não parece ser exposta pelo DLISIO.
 # Esta em 'origin.describe()'.
 
-#las_file.well['DATE'] = '2019-11-18'
+#las_file.well['DATE'] = '2020-01-27'
 
 # Selecionado as logging curves observadas no frame
 
-columns_to_extract = ['INDEX3652', 'RILD', 'CIL', 'SP']
+columns_to_extract = ['INDEX4136', 'RLN', 'RSN', 'SP', 'RLAT']
 
 # Agora que preparamos nosso arquivo LAS e extraímos os dados de cabeçalho do arquivo DLIS, 
 # podemos percorrer os channels no frame no DLIS.
@@ -122,7 +121,7 @@ for channel in frame.channels:
         curves = channel.curves()
 
         # If the channel name is 'INDEX...', convert to 'DEPT' 
-        if channel.name == 'INDEX3652':
+        if channel.name == 'INDEX4136':
             channel_name = 'DEPT'
             description = 'DEPTH'
             # If the units are 0.1 in then convert to metres
@@ -154,4 +153,4 @@ for channel in frame.channels:
 las_file.curves
 
 # Salvar LAS
-las_file.write('C:/Users/Theresa/OneDrive/PESQUISA/LabMeg_Exxon/PMP_BC_WELL_LOGGING/DLIS_to_LAS_stage1/1MB_0001_SC.las')
+las_file.write('C:/Users/Theresa/OneDrive/PESQUISA/LabMeg_Exxon/PMP_BC_WELL_LOGGING/DLIS_to_LAS_stage1/2LA_0001_SC.las')
