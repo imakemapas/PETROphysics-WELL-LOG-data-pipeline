@@ -75,4 +75,4 @@ for channel in frame.channels:
 
 las_file.curves
 
-las_file.write('C:/Users/Theresa/OneDrive/PESQUISA/LabMeg_Exxon/PMP_BC_WELL_LOGGING/DLIS_to_LAS_stage1/2TV_1_SC.las')
+las_file.write('C:/Users/Theresa/OneDrive/PESQUISA/LabMeg_Exxon/PMP_BC_WELL_LOGGING/DLIS_to_LAS_data/2TV_1_SC.las')

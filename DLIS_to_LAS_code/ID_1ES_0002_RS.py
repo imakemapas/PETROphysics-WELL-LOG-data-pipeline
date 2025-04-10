@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Apr  9 20:30:31 2025
+Created on Thu Apr 10 17:09:06 2025
 
 @author: Theresa Rocco Pereira Barbosa
 """
@@ -10,7 +10,7 @@ import lasio
 import pandas as pd
 pd.set_option('display.max_row', 50)
 
-f, *tail = dlis.load("C:/Users/Theresa/OneDrive/PESQUISA/LabMeg_Exxon/PMP_BC_WELL_LOGGING/original_data/dlis_data/2CA__0001__SC_2CA__0001__SC.dlis")
+f, *tail = dlis.load("C:/Users/Theresa/OneDrive/PESQUISA/LabMeg_Exxon/PMP_BC_WELL_LOGGING/original_data/dlis_data/1ES__0002__RS_1ES__0002__RS.dlis")
 f.describe()
 
 origin, *origin_tail = f.origins
@@ -41,7 +41,7 @@ las_file.well['WELL'] = lasio.HeaderItem('WELL', value = well_name)
 las_file.well['FLD'] = lasio.HeaderItem('FLD', value = field_name)
 las_file.well['COMP'] = lasio.HeaderItem('COMP', value = operator)
 
-columns_to_extract = ['INDEX3755', 'RLN', 'RSN', 'SP', 'RLAT']
+columns_to_extract = ['INDEX2022', 'ILD','SN','SP']
 
 frame = f.frames[0]
 
@@ -51,7 +51,7 @@ for channel in frame.channels:
         curves = channel.curves()
 
         # If the channel name is 'INDEX...', convert to 'DEPT' 
-        if channel.name == 'INDEX3755':
+        if channel.name == 'INDEX2022':
             channel_name = 'DEPT'
             description = 'DEPTH'
             # If the units are 0.1 in then convert to metres
@@ -75,4 +75,4 @@ for channel in frame.channels:
 
 las_file.curves
 
-las_file.write('C:/Users/Theresa/OneDrive/PESQUISA/LabMeg_Exxon/PMP_BC_WELL_LOGGING/DLIS_to_LAS_data/2CA_1_SC.las')
+las_file.write('C:/Users/Theresa/OneDrive/PESQUISA/LabMeg_Exxon/PMP_BC_WELL_LOGGING/DLIS_to_LAS_data/1_ES_2_RS.las')

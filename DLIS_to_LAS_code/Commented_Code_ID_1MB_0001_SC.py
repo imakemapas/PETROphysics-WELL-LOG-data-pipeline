@@ -154,4 +154,4 @@ for channel in frame.channels:
 las_file.curves
 
 # Salvar LAS
-las_file.write('C:/Users/Theresa/OneDrive/PESQUISA/LabMeg_Exxon/PMP_BC_WELL_LOGGING/DLIS_to_LAS_stage1/1MB_1_SC.las')
+las_file.write('C:/Users/Theresa/OneDrive/PESQUISA/LabMeg_Exxon/PMP_BC_WELL_LOGGING/DLIS_to_LAS_data/1MB_1_SC.las')
