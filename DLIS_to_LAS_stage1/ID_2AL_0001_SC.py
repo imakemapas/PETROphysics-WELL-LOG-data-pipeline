@@ -56,7 +56,7 @@ for channel in frame.channels:
             channel_name = 'DEPT'
             description = 'DEPTH'
             # If the units are 0.1 in then convert to metres
-            if channel.units == '0.2 in':
+            if channel.units == '0.1 in':
                 curves = curves * 0.00254 
                 unit = 'm'
             else:
