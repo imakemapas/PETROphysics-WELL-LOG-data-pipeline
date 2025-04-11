@@ -41,7 +41,7 @@ las_file.well['WELL'] = lasio.HeaderItem('WELL', value = well_name)
 las_file.well['FLD'] = lasio.HeaderItem('FLD', value = field_name)
 las_file.well['COMP'] = lasio.HeaderItem('COMP', value = operator)
 
-columns_to_extract = ['IINDEX952', 'RLN', 'RSN', 'SP', 'RLAT']
+columns_to_extract = ['INDEX952', 'RLN', 'RSN', 'SP', 'RLAT']
 
 frame = f.frames[0]
 
