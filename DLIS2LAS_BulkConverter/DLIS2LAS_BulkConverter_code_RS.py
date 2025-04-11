@@ -23,7 +23,7 @@ LAS_OUTPUT_DIR = os.path.join(BASE_PATH, "LAS_output")
 # =============================================================================
 
 def format_simple(name):
-    """Formata nomes no padrão 1MB__0001__SC ou 1RCH_0001__SC"""
+
     # Padrão 1: Nomes com 3 caracteres (1MB__0001__SC)
     if len(name.split('__')[0]) == 3:  # Verifica se as iniciais têm 3 caracteres
         parts = name.split('__')
@@ -39,7 +39,7 @@ def format_simple(name):
     prefix_num = ''.join([c for c in num_letras if c.isdigit()])  
     prefix_let = ''.join([c for c in num_letras if c.isalpha()])  
     
-    return f"{prefix_num}_{prefix_let}_{int(numero)}_SC"  
+    return f"{prefix_num}_{prefix_let}_{int(numero)}_RS"  
 
 # =============================================================================
 # FUNÇÃO PARA LISTAR ARQUIVOS DLIS
