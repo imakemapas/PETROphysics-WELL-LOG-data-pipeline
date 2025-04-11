@@ -1,6 +1,6 @@
 ### well-log-data-pipeline
 
-Este repositório tem como objetivo organizar e documentar a exploração de dados de **perfilagem geofísica (well logging)** da **Bacia do Paraná**, com enfoque nos **bastaltos** da **Província Magmática Paraná-Etendeka**
+Este repositório tem como objetivo organizar e documentar a exploração de dados de **perfilagem geofísica (well logging)** da **Bacia Sedimentar do Paraná**, com enfoque nos **bastaltos** da **Província Magmática Paraná-Etendeka**
 
 Os dados utilizados são disponibilizados ao público geral pela **Agência Nacional de Mineração (ANM)** e pelo **Serviço Geológico do Brasil (SGB/CPRM)** no âmbito do Projeto Reate, e estão acessíveis no link abaixo:
 
