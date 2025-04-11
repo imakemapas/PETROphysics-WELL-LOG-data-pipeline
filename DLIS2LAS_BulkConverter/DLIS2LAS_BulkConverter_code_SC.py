@@ -23,7 +23,7 @@ LAS_OUTPUT_DIR = os.path.join(BASE_PATH, "LAS_output")
 # =============================================================================
 
 def format_simple(name):
-    """Formata nomes no padrão 1MB__0001__SC ou 1RCH_0001__SC"""
+
     # Padrão 1: Nomes com 3 letras (1MB__0001__SC)
     if len(name.split('__')[0]) == 3:  
         parts = name.split('__')
