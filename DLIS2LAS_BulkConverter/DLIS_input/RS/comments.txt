@@ -1,0 +1,87 @@
+INICIANDO PROCESSAMENTO EM LOTE DE ARQUIVOS DLIS
+Diretório de entrada: C:/Users/Theresa/OneDrive/PESQUISA/LabMeg_Exxon/PMP_BC_WELL_LOGGING/DLIS2LAS_BulkConverter/DLIS_input/RS
+Diretório de saída: C:/Users/Theresa/OneDrive/PESQUISA/LabMeg_Exxon/PMP_BC_WELL_LOGGING/DLIS2LAS_BulkConverter/LAS_output
+
+Encontrados 10 arquivos DLIS para processar:
+1. 1ES__0001__RS_1ES__0001__RS
+2. 1ES__0002__RS_1ES__0002__RS
+3. 1MA__0001__RS_1MA__0001__RS
+4. 1MC__0001__RS_1MC__0001__RS
+5. 2AL__0001__RS_2AL__0001__RS
+6. 2AO__0001__RS_2AO__0001__RS
+7. 2IT__0001__RS_2IT__0001__RS
+8. 2MR__0001__RS_2MR__0001__RS
+9. 2RD__0001__RS_2RD__0001__RS
+10. 2RI__0001__RS_2RI__0001__RS
+
+============================================================
+Processando arquivo: 1ES__0001__RS_1ES__0001__RS
+============================================================
+✅ Arquivo LAS salvo em: C:/Users/Theresa/OneDrive/PESQUISA/LabMeg_Exxon/PMP_BC_WELL_LOGGING/DLIS2LAS_BulkConverter/LAS_output\1_ES_1_SC.las
+   Intervalo de profundidade: 0.00 - 2418.00 m
+   Canais incluídos: ['DEPT', 'RILD', 'SN', 'SP', 'CIL', 'GR', 'RHOB', 'DRHO', 'DLT', 'CAL', 'RGSS', 'TTI', 'TOT']
+
+============================================================
+Processando arquivo: 1ES__0002__RS_1ES__0002__RS
+============================================================
+✅ Arquivo LAS salvo em: C:/Users/Theresa/OneDrive/PESQUISA/LabMeg_Exxon/PMP_BC_WELL_LOGGING/DLIS2LAS_BulkConverter/LAS_output\1_ES_2_SC.las
+   Intervalo de profundidade: 0.00 - 2423.80 m
+   Canais incluídos: ['DEPT', 'SN', 'SP', 'ILD', 'DT', 'GR', 'CALI', 'DRHO', 'NPHI', 'RHOB', 'ITT', 'RGSS']
+
+============================================================
+Processando arquivo: 1MA__0001__RS_1MA__0001__RS
+============================================================
+✅ Arquivo LAS salvo em: C:/Users/Theresa/OneDrive/PESQUISA/LabMeg_Exxon/PMP_BC_WELL_LOGGING/DLIS2LAS_BulkConverter/LAS_output\1_MA_1_SC.las
+   Intervalo de profundidade: 0.00 - 2710.00 m
+   Canais incluídos: ['DEPT', 'RILD', 'RSN', 'SP', 'CIL', 'GR', 'DLT', 'CAL', 'RGSS', 'TTI', 'TOT']
+
+============================================================
+Processando arquivo: 1MC__0001__RS_1MC__0001__RS
+============================================================
+✅ Arquivo LAS salvo em: C:/Users/Theresa/OneDrive/PESQUISA/LabMeg_Exxon/PMP_BC_WELL_LOGGING/DLIS2LAS_BulkConverter/LAS_output\1_MC_1_SC.las
+   Intervalo de profundidade: 0.00 - 2310.99 m
+   Canais incluídos: ['DEPT', 'CALI_1', 'DT', 'DT_1', 'GR', 'GR_1', 'ITT', 'ITT_1', 'CALI', 'DRHO', 'NPHI', 'RHOB', 'CILD_1', 'ILD', 'ILD_1', 'SN', 'SN_1', 'SP', 'SP_1', 'TENS', 'TENS_1', 'CILD']
+
+============================================================
+Processando arquivo: 2AL__0001__RS_2AL__0001__RS
+============================================================
+✅ Arquivo LAS salvo em: C:/Users/Theresa/OneDrive/PESQUISA/LabMeg_Exxon/PMP_BC_WELL_LOGGING/DLIS2LAS_BulkConverter/LAS_output\2_AL_1_SC.las
+   Intervalo de profundidade: 0.00 - 2034.80 m
+   Canais incluídos: ['DEPT', 'RLN', 'RSN', 'SP', 'RLAT', 'DTSI', 'NEUT', 'GR', 'RGSS', 'TTI', 'TOT']
+
+============================================================
+Processando arquivo: 2AO__0001__RS_2AO__0001__RS
+============================================================
+✅ Arquivo LAS salvo em: C:/Users/Theresa/OneDrive/PESQUISA/LabMeg_Exxon/PMP_BC_WELL_LOGGING/DLIS2LAS_BulkConverter/LAS_output\2_AO_1_SC.las
+   Intervalo de profundidade: 0.00 - 2250.40 m
+   Canais incluídos: ['DEPT', 'NPHI', 'RHOB', 'GR', 'RGSS', 'TOT_1', 'TTI', 'TTI_1', 'TOT', 'DT', 'CALI', 'SN', 'SP', 'ILD', 'DRHO']
+
+============================================================
+Processando arquivo: 2IT__0001__RS_2IT__0001__RS
+============================================================
+✅ Arquivo LAS salvo em: C:/Users/Theresa/OneDrive/PESQUISA/LabMeg_Exxon/PMP_BC_WELL_LOGGING/DLIS2LAS_BulkConverter/LAS_output\2_IT_1_SC.las
+   Intervalo de profundidade: 0.00 - 2515.00 m
+   Canais incluídos: ['DEPT', 'RLN', 'RSN', 'SP', 'RLAT', 'DTSI', 'NEUT', 'GR', 'TTI', 'TOT']
+
+============================================================
+Processando arquivo: 2MR__0001__RS_2MR__0001__RS
+============================================================
+✅ Arquivo LAS salvo em: C:/Users/Theresa/OneDrive/PESQUISA/LabMeg_Exxon/PMP_BC_WELL_LOGGING/DLIS2LAS_BulkConverter/LAS_output\2_MR_1_SC.las
+   Intervalo de profundidade: 0.00 - 2590.00 m
+   Canais incluídos: ['DEPT', 'RLN', 'RSN', 'SP', 'RLAT', 'DTSI', 'NEUT', 'GR', 'PESS', 'TTI', 'TOT']
+
+============================================================
+Processando arquivo: 2RD__0001__RS_2RD__0001__RS
+============================================================
+✅ Arquivo LAS salvo em: C:/Users/Theresa/OneDrive/PESQUISA/LabMeg_Exxon/PMP_BC_WELL_LOGGING/DLIS2LAS_BulkConverter/LAS_output\2_RD_1_SC.las
+   Intervalo de profundidade: 0.00 - 3417.42 m
+   Canais incluídos: ['DEPT', 'CALI_1', 'CALI', 'ILD', 'SN', 'SP', 'CILD', 'DT', 'ITT', 'TENS', 'DRHO_1', 'GR', 'NPHI', 'NPHI_1', 'RHOB', 'RHOB_1', 'DRHO']
+
+============================================================
+Processando arquivo: 2RI__0001__RS_2RI__0001__RS
+============================================================
+✅ Arquivo LAS salvo em: C:/Users/Theresa/OneDrive/PESQUISA/LabMeg_Exxon/PMP_BC_WELL_LOGGING/DLIS2LAS_BulkConverter/LAS_output\2_RI_1_SC.las
+   Intervalo de profundidade: 0.00 - 2400.00 m
+   Canais incluídos: ['DEPT', 'RLN', 'RSN', 'SP', 'RLAT', 'DTSI', 'GR', 'PESS', 'TTI', 'TOT']
+
+PROCESSAMENTO CONCLUÍDO!
