@@ -15,7 +15,7 @@ import numpy as np
 # =============================================================================
 
 BASE_PATH = "C:/Users/Theresa/OneDrive/PESQUISA/LabMeg_Exxon/PMP_BC_WELL_LOGGING/DLIS2LAS_BulkConverter/"
-DLIS_INPUT_DIR = os.path.join(BASE_PATH, "DLIS_input/PR")
+DLIS_INPUT_DIR = os.path.join(BASE_PATH, "DLIS_input/SP")
 LAS_OUTPUT_DIR = os.path.join(BASE_PATH, "LAS_output")
 
 # =============================================================================
@@ -23,30 +23,36 @@ LAS_OUTPUT_DIR = os.path.join(BASE_PATH, "LAS_output")
 # =============================================================================
 
 def format_simple(name):
-    # Primeiro extrai a parte relevante do nome (1MR__0001A_PR)
-    base_part = name.split('_PR_')[0] if '_PR_' in name else name.split('__')[0] + '__' + name.split('__')[1]
-    
-    # Separa a parte do prefixo (1MR) e número (0001A)
-    if '__' in base_part:
-        prefix_part, number_part = base_part.split('__')[:2]
+    # Verifica se tem o padrão com 2 letras extras no meio (como 0001DA)
+    if any(c.isalpha() for c in name.split('__')[1][-2:]):
+        # Padrão 3: Nomes como 2CB__0001DA__SP
+        parts = name.split('__')
+        num_letras = parts[0]          
+        numero_com_letras = parts[1]
+        # Separa a parte numérica (0001) das letras finais (DA)
+        numero = numero_com_letras[:-2]  # Pega tudo exceto os últimos 2 caracteres
+        letras_extras = numero_com_letras[-2:]  # Pega os últimos 2 caracteres
+    # Padrão 1: Nomes com 3 letras (1MB__0001__SC)
+    elif len(name.split('__')[0]) == 3:  
+        parts = name.split('__')
+        num_letras = parts[0]          
+        numero = parts[1]           
+        letras_extras = ''  # Não tem letras extras nesse padrão
+    # Padrão 2: Nomes com 4 letras (1RCH_0001__SC)
     else:
-        prefix_part, number_part = base_part.split('_')[:2]
+        parts = name.split('_')
+        num_letras = parts[0]         
+        numero = parts[1]            
+        letras_extras = ''  # Não tem letras extras nesse padrão
     
-    # Extrai dígitos e letras do prefixo
-    prefix_num = ''.join([c for c in prefix_part if c.isdigit()])
-    prefix_letters = ''.join([c for c in prefix_part if c.isalpha()])
+    # Extrai dígitos e letras iniciais
+    prefix_num = ''.join([c for c in num_letras if c.isdigit()])  
+    prefix_let = ''.join([c for c in num_letras if c.isalpha()])  
     
-    # Extrai número e letras finais (0001A → 1 e A)
-    well_number = ''.join([c for c in number_part if c.isdigit()])
-    well_letters = ''.join([c for c in number_part if c.isalpha()])
+    # Adiciona as letras extras se existirem
+    suffix = f"_{letras_extras}" if letras_extras else ""
     
-    # Formata a saída
-    result = f"{prefix_num}_{prefix_letters}_{int(well_number) if well_number else 1}"
-    if well_letters:
-        result += f"_{well_letters}"
-    result += "_PR"
-    
-    return result
+    return f"{prefix_num}_{prefix_let}_{int(numero)}{suffix}_SP"
 
 # =============================================================================
 # FUNÇÃO PARA LISTAR ARQUIVOS DLIS

@@ -15,7 +15,7 @@ import numpy as np
 # =============================================================================
 
 BASE_PATH = "C:/Users/Theresa/OneDrive/PESQUISA/LabMeg_Exxon/PMP_BC_WELL_LOGGING/DLIS2LAS_BulkConverter/"
-DLIS_INPUT_DIR = os.path.join(BASE_PATH, "DLIS_input/PR")
+DLIS_INPUT_DIR = os.path.join(BASE_PATH, "DLIS_input/MS")
 LAS_OUTPUT_DIR = os.path.join(BASE_PATH, "LAS_output")
 
 # =============================================================================
@@ -23,30 +23,27 @@ LAS_OUTPUT_DIR = os.path.join(BASE_PATH, "LAS_output")
 # =============================================================================
 
 def format_simple(name):
-    # Primeiro extrai a parte relevante do nome (1MR__0001A_PR)
-    base_part = name.split('_PR_')[0] if '_PR_' in name else name.split('__')[0] + '__' + name.split('__')[1]
+ 
+    base_name = name.split('_')[0] + '_' + name.split('_')[1] + '_' + name.split('_')[2]
     
-    # Separa a parte do prefixo (1MR) e número (0001A)
-    if '__' in base_part:
-        prefix_part, number_part = base_part.split('__')[:2]
+    # Padrão 1: Nomes com 3 letras (1MB__0001__SC)
+    if len(base_name.split('__')[0]) == 3:  
+        parts = base_name.split('__')
+        num_letras = parts[0]          
+        numero = parts[1]              
+    # Padrão 2: Nomes com 4 letras (1RCH_0001__SC)
     else:
-        prefix_part, number_part = base_part.split('_')[:2]
+        parts = base_name.split('_')
+        num_letras = parts[0]        
+        numero = parts[1]             
     
-    # Extrai dígitos e letras do prefixo
-    prefix_num = ''.join([c for c in prefix_part if c.isdigit()])
-    prefix_letters = ''.join([c for c in prefix_part if c.isalpha()])
+    prefix_num = ''.join([c for c in num_letras if c.isdigit()])
+    prefix_let = ''.join([c for c in num_letras if c.isalpha()])
     
-    # Extrai número e letras finais (0001A → 1 e A)
-    well_number = ''.join([c for c in number_part if c.isdigit()])
-    well_letters = ''.join([c for c in number_part if c.isalpha()])
+    # Extrai apenas a parte numérica
+    well_number = ''.join([c for c in numero if c.isdigit()]) or '1'
     
-    # Formata a saída
-    result = f"{prefix_num}_{prefix_letters}_{int(well_number) if well_number else 1}"
-    if well_letters:
-        result += f"_{well_letters}"
-    result += "_PR"
-    
-    return result
+    return f"{prefix_num}_{prefix_let}_{int(well_number)}_MS"
 
 # =============================================================================
 # FUNÇÃO PARA LISTAR ARQUIVOS DLIS
