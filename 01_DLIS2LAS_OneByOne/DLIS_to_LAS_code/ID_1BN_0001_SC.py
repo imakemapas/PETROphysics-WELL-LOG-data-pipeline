@@ -87,11 +87,11 @@ for i, lf in enumerate(all_files, start=1):
     print("-" * 40)
     
     for frame in lf.frames:
-        # [BOA PRÁTICA] Verificar se existe canal de profundidade
+        # Verificar se existe canal de profundidade
         depth_channel = next((ch for ch in frame.channels if ch.name == frame.index), None)
         depth_units = depth_channel.units if depth_channel else "N/A"
         
-        # [BOA PRÁTICA] Formatação consistente da saída
+        # Formatação consistente da saída
         print(f'Frame Name: \t\t {frame.name}')
         print(f'Index Type: \t\t {frame.index_type}')
         print(f'Depth Interval: \t {frame.index_min} - {frame.index_max} {depth_units}')
@@ -99,7 +99,7 @@ for i, lf in enumerate(all_files, start=1):
         print(f'Direction: \t\t {frame.direction}')
         print(f'Num of Channels: \t {len(frame.channels)}')
         
-        # [BOA PRÁTICA] Lista formatada dos canais
+        # Lista formatada dos canais
         print("Channel Names:")
         for channel in frame.channels:
             print(f'  - {channel.name} ({channel.units or "No unit"})')
